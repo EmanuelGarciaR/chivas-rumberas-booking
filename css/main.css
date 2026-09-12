@@ -201,3 +201,88 @@
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
+
+/* la experiencia section */
+
+.experience{
+    height: 100vh;
+    width: 100%;
+    background-color: #f7f1e1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;     
+    padding-left: 200px;     
+    gap: 80px;
+}
+
+.experience__content{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 45%;
+    max-width: 600px;
+}
+.experience__title{
+    font-family: 'Grotesk', sans-serif;
+    color: #000000;
+    font-size: 3.5rem;
+    font-weight: lighter;
+    line-height: 1.5;
+}
+.experience__title--enfasis{
+    color: #A83627;
+    font-family: 'Libre Baskerville', sans-serif;
+    font-style: italic;
+}
+
+.experience__details{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+}
+.experience__text{
+    font-family: 'Grotesk', sans-serif;
+    color: #000000;
+    font-size: 1rem;
+    font-weight: 400;
+    max-width: 400px;
+}
+.experience__text--principal{
+    font-size: 2rem;
+    /* margin-bottom: 20px; */
+}
+
+.experience__text--secundario{
+    font-size: 1rem;
+    color: #4d4d4d;
+    /* margin-bottom: 20px; */
+}
+.link {
+    color: #000;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: inline-flex; 
+    align-items: center; 
+    gap: 15px;
+}
+
+.link--primary {
+    color:#A83627;
+    margin-top: 50px;
+    position: relative;
+}
+
+.link--primary::before{
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #A83627;
+}
