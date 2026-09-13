@@ -73,6 +73,24 @@ body { background-color: var(--bg-primary); color: var(--text-primary); transiti
     font-family: inherit;
 }
 
+/* Prevenir cortes de palabras e hifenización en responsive */
+html, body, p, h1, h2, h3, h4, h5, h6, span, a, li, button, label, input, textarea {
+    overflow-wrap: break-word;
+    word-break: normal;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+}
+
+p, li, span, a {
+    text-wrap: pretty;
+}
+
 img, video, canvas, svg {
     max-width: 100%;
 }
@@ -1375,6 +1393,23 @@ img, video, canvas, svg {
     /* Momentos */
     .momentos__title {
         font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --font-size-2xl: 2.1rem;
+        --font-size-xl: 1.75rem;
+        --font-size-lg: 1.25rem;
+    }
+
+    .hero__title, .chivas__title, .steps__title, .momentos__title, .booking__title {
+        font-size: 2.1rem;
+    }
+
+    .stats__description--important {
+        font-size: 1.1rem;
+        padding: 0 10px;
     }
 }
 
