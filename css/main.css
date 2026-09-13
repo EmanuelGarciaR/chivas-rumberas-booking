@@ -932,3 +932,127 @@ body { background-color: var(--bg-primary); color: var(--text-primary); transiti
     font-size: var(--font-size-sm);
     border: none;
 }
+
+
+   /* Footer Section */
+
+.footer {
+    background-color: var(--bg-dark-panel);
+    color: var(--color-crema-claro);
+    padding: 80px 50px 40px;
+    font-family: var(--font-primary);
+}
+
+.footer__main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.footer__brand {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.footer__logo {
+    height: 40px;
+    width: auto;
+}
+
+.footer__slogan {
+    flex: 1;
+    text-align: center;
+    font-size: var(--font-size-md);
+    line-height: 1.2;
+}
+
+.footer__slogan--enfasis {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--color-amarillo);
+    font-size: 1.2em;
+}
+
+.footer__cta {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.footer__link-whatsapp {
+    color: var(--color-amarillo);
+    text-decoration: none;
+    font-size: var(--font-size-sm);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(240, 203, 65, 0.3);
+    padding-bottom: 5px;
+    transition: border-color 0.3s ease, opacity 0.3s ease;
+}
+
+.footer__link-whatsapp:hover {
+    border-color: var(--color-amarillo);
+    opacity: 0.8;
+}
+
+.footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 40px;
+    font-size: var(--font-size-xs);
+    color: var(--color-gris-claro);
+    letter-spacing: 1px;
+}
+
+.footer__social-list {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    list-style: none;
+}
+
+.footer__social-link {
+    color: var(--color-gris-claro);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer__social-link:hover {
+    color: var(--color-amarillo);
+}
+
+.footer__separator {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.footer__copyright, .footer__credit {
+    opacity: 0.6;
+}
+
+@media (max-width: 900px) {
+    .footer__main {
+        flex-direction: column;
+        gap: 50px;
+    }
+    .footer__brand, .footer__cta {
+        justify-content: center;
+    }
+    .footer__bottom {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+}
+
+.footer__cta {
+    font-style: normal;
+}
+.footer__copyright, .footer__credit {
+    font-size: inherit;
+}
