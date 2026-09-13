@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Space+Grotesk:wght@300..700&display=swap");
+
 body { background-color: var(--bg-primary); color: var(--text-primary); transition: background-color 0.3s ease, color 0.3s ease; }
 :root {
   /* Colores de marca (Paleta Base) */
@@ -40,7 +42,7 @@ body { background-color: var(--bg-primary); color: var(--text-primary); transiti
   --font-size-md: 1.2rem;
   --font-size-lg: 2rem;
   --font-size-xl: 3.5rem;
-  --font-size-2xl: 5rem;
+  --font-size-2xl: 3.8rem;
 }
 
 [data-theme='dark'] {
@@ -56,14 +58,14 @@ body { background-color: var(--bg-primary); color: var(--text-primary); transiti
   --border-color: var(--text-primary);
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Space+Grotesk:wght@300..700&display=swap');
+
 
 * {
     background-color: transparent;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: var(--font-primary);
+    font-family: inherit;
 }
 
 ::-moz-selection {
@@ -1442,7 +1444,6 @@ body { background-color: var(--bg-primary); color: var(--text-primary); transiti
 }
 
 
-/* Added for Contact Form */
 .booking__contact-wrapper {
     display: flex;
     flex-direction: column;
@@ -1463,4 +1464,23 @@ body { background-color: var(--bg-primary); color: var(--text-primary); transiti
 }
 .booking__input-text:focus {
     border-color: var(--text-accent);
+}
+
+/* Validation Error Styles */
+.booking__field {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.booking__input-text.booking__input--error,
+.booking__input-datetime.booking__input--error {
+    border-color: var(--color-rojo, #A83627) !important;
+}
+.booking__error-msg {
+    color: var(--color-rojo, #A83627);
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-top: 6px;
+    display: block;
+    text-align: left;
 }
