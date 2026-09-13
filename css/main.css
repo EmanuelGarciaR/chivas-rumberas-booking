@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Space+Grotesk:wght@300..700&display=swap");
 
+html, body { 
+    overflow-x: hidden;
+    max-width: 100%;
+}
 body { background-color: var(--bg-primary); color: var(--text-primary); transition: background-color 0.3s ease, color 0.3s ease; }
 :root {
   /* Colores de marca (Paleta Base) */
@@ -708,7 +712,7 @@ body { background-color: var(--bg-primary); color: var(--text-primary); transiti
 .nav__theme-toggle { 
     background: transparent; 
     border: none; 
-    color: var(--color-gris-claro); 
+    color: var(--color-blanco); 
     font-size: 1.2rem; 
     cursor: pointer; 
     transition: all 0.3s ease; 
@@ -1406,13 +1410,17 @@ body { background-color: var(--bg-primary); color: var(--text-primary); transiti
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+        transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1), visibility 0.4s ease;
         z-index: 1000;
         box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+        visibility: hidden;
+        pointer-events: none;
     }
     
     .nav__menu-wrapper--open {
         right: 0;
+        visibility: visible;
+        pointer-events: auto;
     }
 
     .nav__list {
