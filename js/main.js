@@ -122,16 +122,28 @@ function renderBookingStep(step) {
     if (stepData.type === 'datetime') {
         contentHtml = `
             <div class="booking__datetime-wrapper">
-                <input type="datetime-local" class="booking__input-datetime" id="booking-date" required>
+                <div class="booking__field">
+                    <input type="datetime-local" class="booking__input-datetime" id="booking-date">
+                    <span class="booking__error-msg" id="error-date"></span>
+                </div>
                 <button type="button" class="btn btn--primary booking__btn-next" onclick="nextStep()">Continuar <i class="fa-solid fa-arrow-right"></i></button>
             </div>
         `;
     } else if (stepData.type === 'contact_form') {
         contentHtml = `
             <div class="booking__contact-wrapper">
-                <input type="text" class="booking__input-text" id="booking-name" placeholder="Tu nombre completo" required>
-                <input type="email" class="booking__input-text" id="booking-email" placeholder="Tu correo electrónico" required>
-                <input type="tel" class="booking__input-text" id="booking-phone" placeholder="Tu número de teléfono" required>
+                <div class="booking__field">
+                    <input type="text" class="booking__input-text" id="booking-name" placeholder="Tu nombre completo">
+                    <span class="booking__error-msg" id="error-name"></span>
+                </div>
+                <div class="booking__field">
+                    <input type="email" class="booking__input-text" id="booking-email" placeholder="Tu correo electrónico">
+                    <span class="booking__error-msg" id="error-email"></span>
+                </div>
+                <div class="booking__field">
+                    <input type="tel" class="booking__input-text" id="booking-phone" placeholder="Tu número de teléfono">
+                    <span class="booking__error-msg" id="error-phone"></span>
+                </div>
                 <button type="submit" class="btn btn--primary booking__btn-next">Continuar <i class="fa-solid fa-arrow-right"></i></button>
             </div>
         `;
@@ -153,6 +165,18 @@ function renderBookingStep(step) {
         <h3 id="step-question" class="booking__question">${stepData.title}</h3>
         ${contentHtml}
     `;
+
+    // Attach live input listeners to clear errors as user types
+    const inputs = stepContent.querySelectorAll('input');
+    inputs.forEach(input => {
+        input.addEventListener('input', () => {
+            input.classList.remove('booking__input--error');
+            const errorSpan = input.nextElementSibling;
+            if (errorSpan && errorSpan.classList.contains('booking__error-msg')) {
+                errorSpan.textContent = '';
+            }
+        });
+    });
 
     const steps = document.querySelectorAll('.booking__step');
     steps.forEach((el, index) => {
@@ -183,8 +207,10 @@ function renderBookingStep(step) {
 window.nextStep = function(answer) {
     if (currentStep === 4) {
         const dateInput = document.getElementById('booking-date');
-        if (!dateInput.value) {
-            alert('Por favor, selecciona una fecha y hora para continuar.');
+        const errorDate = document.getElementById('error-date');
+        if (!dateInput || !dateInput.value) {
+            if (dateInput) dateInput.classList.add('booking__input--error');
+            if (errorDate) errorDate.textContent = 'Por favor, selecciona una fecha y hora para continuar.';
             return;
         }
         bookingData[bookingSteps[currentStep - 1].title] = dateInput.value;
@@ -222,9 +248,59 @@ window.submitBookingForm = function() {
         const emailInput = document.getElementById('booking-email');
         const phoneInput = document.getElementById('booking-phone');
         
-        bookingData["Nombre"] = nameInput.value;
-        bookingData["Correo"] = emailInput.value;
-        bookingData["Teléfono"] = phoneInput.value;
+        const errorName = document.getElementById('error-name');
+        const errorEmail = document.getElementById('error-email');
+        const errorPhone = document.getElementById('error-phone');
+
+        let isValid = true;
+
+        // Reset previous errors
+        [nameInput, emailInput, phoneInput].forEach(inp => inp && inp.classList.remove('booking__input--error'));
+        [errorName, errorEmail, errorPhone].forEach(err => err && (err.textContent = ''));
+
+        // 1. Validar Nombre (Requerido + Min Length 3)
+        const nameVal = nameInput ? nameInput.value.trim() : '';
+        if (!nameVal) {
+            if (nameInput) nameInput.classList.add('booking__input--error');
+            if (errorName) errorName.textContent = 'El nombre es obligatorio.';
+            isValid = false;
+        } else if (nameVal.length < 3) {
+            if (nameInput) nameInput.classList.add('booking__input--error');
+            if (errorName) errorName.textContent = 'El nombre debe tener al menos 3 caracteres.';
+            isValid = false;
+        }
+
+        // 2. Validar Correo (Requerido + Formato Email)
+        const emailVal = emailInput ? emailInput.value.trim() : '';
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailVal) {
+            if (emailInput) emailInput.classList.add('booking__input--error');
+            if (errorEmail) errorEmail.textContent = 'El correo electrónico es obligatorio.';
+            isValid = false;
+        } else if (!emailRegex.test(emailVal)) {
+            if (emailInput) emailInput.classList.add('booking__input--error');
+            if (errorEmail) errorEmail.textContent = 'Ingresa un correo electrónico válido (ej: nombre@correo.com).';
+            isValid = false;
+        }
+
+        // 3. Validar Teléfono (Requerido + Min Length 7 + Formato número)
+        const phoneVal = phoneInput ? phoneInput.value.trim() : '';
+        const phoneRegex = /^[0-9+\s-]{7,15}$/;
+        if (!phoneVal) {
+            if (phoneInput) phoneInput.classList.add('booking__input--error');
+            if (errorPhone) errorPhone.textContent = 'El teléfono de contacto es obligatorio.';
+            isValid = false;
+        } else if (!phoneRegex.test(phoneVal)) {
+            if (phoneInput) phoneInput.classList.add('booking__input--error');
+            if (errorPhone) errorPhone.textContent = 'Ingresa un número de teléfono válido (mínimo 7 dígitos).';
+            isValid = false;
+        }
+
+        if (!isValid) return;
+        
+        bookingData["Nombre"] = nameVal;
+        bookingData["Correo"] = emailVal;
+        bookingData["Teléfono"] = phoneVal;
         
         currentStep++;
         renderBookingStep(currentStep);
