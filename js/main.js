@@ -193,3 +193,43 @@ window.nextStep = function() {
 if(document.querySelector('.booking__step-content')) {
     renderBookingStep(currentStep);
 }
+
+
+// Hamburger Menu Logic
+const hamburgerBtn = document.querySelector('.nav__hamburger');
+const menuWrapper = document.querySelector('.nav__menu-wrapper');
+const hamburgerIcon = hamburgerBtn ? hamburgerBtn.querySelector('i') : null;
+
+if (hamburgerBtn && menuWrapper) {
+    hamburgerBtn.addEventListener('click', () => {
+        menuWrapper.classList.toggle('nav__menu-wrapper--open');
+        const isOpen = menuWrapper.classList.contains('nav__menu-wrapper--open');
+        hamburgerBtn.setAttribute('aria-expanded', isOpen);
+        
+        if (isOpen) {
+            hamburgerIcon.classList.remove('fa-bars');
+            hamburgerIcon.classList.add('fa-xmark');
+            document.body.style.overflow = 'hidden'; // Evita scrollear cuando esta abierto
+        } else {
+            hamburgerIcon.classList.remove('fa-xmark');
+            hamburgerIcon.classList.add('fa-bars');
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    // Close menu when clicking a link
+    const navLinks = menuWrapper.querySelectorAll('.nav__link, .btn, .nav__theme-toggle');
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            // Si es el toggle, que cambie el tema pero no cierre si quieres, o si quieres cerrarlo déjalo.
+            // Para el toggle, quizas no queremos cerrar.
+            if (!link.classList.contains('nav__theme-toggle')) {
+                menuWrapper.classList.remove('nav__menu-wrapper--open');
+                hamburgerBtn.setAttribute('aria-expanded', 'false');
+                hamburgerIcon.classList.remove('fa-xmark');
+                hamburgerIcon.classList.add('fa-bars');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    });
+}
