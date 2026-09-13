@@ -344,3 +344,99 @@
     font-size: 1rem;
     font-weight: 400;
 }
+
+/* chivas seccion */
+
+/* --- SECCIÓN PRINCIPAL --- */
+.chivas {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #160c07;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 50px 80px;
+}
+
+.chivas__part {
+    color: #f0cb41;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.chivas__header {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+    align-items: center; 
+    width: 100%;
+    gap: 40px;
+}
+
+.chivas__title {
+    color: #fff;
+    font-size: 5rem;
+    font-weight: 500;
+    text-align: left;
+}
+.chivas__title--enfasis {
+    color: #f0cb41;
+    font-family: 'Libre Baskerville', sans-serif;
+    font-style: italic;
+}
+
+.chivas__description {
+    max-width: 500px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+.chivas__gallery{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    width: 100%;
+    margin-top: 60px;
+    padding: 0;
+}
+
+.chiva-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #24150e;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.chiva-card:hover {
+    transform: translateY(-5px);
+}
+
+.chiva-card__image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.link--secondary {
+    color: #f0cb41;
+    padding: 10px;
+    position: relative;
+    align-self: flex-start;
+}
+
+.link--secondary::before {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #f0cb41;
+}
