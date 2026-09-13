@@ -200,7 +200,7 @@
     </header>
 
     <div class="booking__container">
-        <form class="booking__form-area" aria-label="Formulario de reserva" onsubmit="event.preventDefault();">
+        <form id="booking-form" class="booking__form-area" action="https://formspree.io/f/xjyvqory" method="POST" aria-label="Formulario de reserva" onsubmit="event.preventDefault(); submitBookingForm();">
             
             <nav class="booking__progress" aria-label="Pasos de la reserva">
                 <div class="booking__step booking__step--active" aria-current="step">

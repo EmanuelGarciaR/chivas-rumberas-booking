@@ -1441,3 +1441,26 @@ body { background-color: var(--bg-primary); color: var(--text-primary); transiti
     }
 }
 
+
+/* Added for Contact Form */
+.booking__contact-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 400px;
+}
+.booking__input-text {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid var(--border-color);
+    background-color: transparent;
+    color: var(--text-primary);
+    font-size: var(--font-size-md);
+    font-family: var(--font-primary);
+    outline: none;
+    transition: border-color 0.3s ease;
+    cursor: text;
+}
+.booking__input-text:focus {
+    border-color: var(--text-accent);
+}

@@ -76,7 +76,7 @@ function updateIcon(theme) {
 }
 
 
-// bookin
+// booking
 const bookingSteps = [
     {
         title: "¿Qué vamos a celebrar?",
@@ -98,9 +98,8 @@ const bookingSteps = [
         type: "datetime"
     },
     {
-        title: "¿A quién contactamos?",
-        type: "options",
-        options: ["Completar mis datos", "Usar mi perfil", "Llamarme mañana", "Escribirme por WhatsApp"]
+        title: "Tus datos de contacto",
+        type: "contact_form"
     },
     {
         title: "Confirmar pago",
@@ -110,6 +109,7 @@ const bookingSteps = [
 ];
 
 let currentStep = 1;
+let bookingData = {};
 
 function renderBookingStep(step) {
     const stepContent = document.querySelector('.booking__step-content');
@@ -126,11 +126,20 @@ function renderBookingStep(step) {
                 <button type="button" class="btn btn--primary booking__btn-next" onclick="nextStep()">Continuar <i class="fa-solid fa-arrow-right"></i></button>
             </div>
         `;
+    } else if (stepData.type === 'contact_form') {
+        contentHtml = `
+            <div class="booking__contact-wrapper">
+                <input type="text" class="booking__input-text" id="booking-name" placeholder="Tu nombre completo" required>
+                <input type="email" class="booking__input-text" id="booking-email" placeholder="Tu correo electrónico" required>
+                <input type="tel" class="booking__input-text" id="booking-phone" placeholder="Tu número de teléfono" required>
+                <button type="submit" class="btn btn--primary booking__btn-next">Continuar <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        `;
     } else {
         contentHtml = `
             <div class="booking__options" role="group" aria-label="Opciones">
                 ${stepData.options.map(opt => `
-                    <button type="button" class="booking__option" onclick="nextStep()">
+                    <button type="button" class="booking__option" onclick="nextStep('${opt}')">
                         <span>${opt}</span>
                         <i class="fa-solid fa-arrow-up-right-from-square option-icon" aria-hidden="true"></i>
                     </button>
@@ -171,21 +180,53 @@ function renderBookingStep(step) {
     }
 }
 
-window.nextStep = function() {
+window.nextStep = function(answer) {
     if (currentStep === 4) {
         const dateInput = document.getElementById('booking-date');
         if (!dateInput.value) {
             alert('Por favor, selecciona una fecha y hora para continuar.');
             return;
         }
+        bookingData[bookingSteps[currentStep - 1].title] = dateInput.value;
+    } else if (answer) {
+        bookingData[bookingSteps[currentStep - 1].title] = answer;
+    }
+
+    if (currentStep === 6) {
+        // Enviar el formulario
+        const form = document.getElementById('booking-form');
+        
+        // Agregar campos ocultos con toda la data
+        for (const key in bookingData) {
+            const hiddenField = document.createElement('input');
+            hiddenField.type = 'hidden';
+            hiddenField.name = key;
+            hiddenField.value = bookingData[key];
+            form.appendChild(hiddenField);
+        }
+        
+        // Submit real al endpoint
+        form.submit();
+        return;
     }
 
     if (currentStep < 6) {
         currentStep++;
         renderBookingStep(currentStep);
-    } else {
-        alert("¡Formulario completado! (Simulación visual)");
-        currentStep = 1;
+    }
+};
+
+window.submitBookingForm = function() {
+    if (currentStep === 5) {
+        const nameInput = document.getElementById('booking-name');
+        const emailInput = document.getElementById('booking-email');
+        const phoneInput = document.getElementById('booking-phone');
+        
+        bookingData["Nombre"] = nameInput.value;
+        bookingData["Correo"] = emailInput.value;
+        bookingData["Teléfono"] = phoneInput.value;
+        
+        currentStep++;
         renderBookingStep(currentStep);
     }
 };
@@ -193,6 +234,7 @@ window.nextStep = function() {
 if(document.querySelector('.booking__step-content')) {
     renderBookingStep(currentStep);
 }
+
 
 
 // Hamburger Menu Logic
