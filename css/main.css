@@ -110,7 +110,7 @@ body { background-color: var(--bg-primary); color: var(--text-primary); transiti
 }
 .nav__title{
     font-family: var(--font-primary);
-    color: var(--color-blanco);
+    color: var(--color-amarillo);
     font-size: 1.25rem;
     font-weight: 700;
     margin-left: 20px;
@@ -135,14 +135,14 @@ body { background-color: var(--bg-primary); color: var(--text-primary); transiti
 
 .nav__item{
     font-weight: 300;
-    color: var(--color-blanco);
+    color: var(--color-amarillo);
     font-size: 1rem;
     font-weight: 500;
     cursor: pointer;
 }
 
 .nav__link{
-    color: var(--color-gris-claro);
+    color: var(--color-amarillo);
     text-decoration: none;
 }
 
@@ -703,8 +703,14 @@ body { background-color: var(--bg-primary); color: var(--text-primary); transiti
     font-style: italic;
 }
 
-/* Theme Toggle */
-.nav__theme-toggle { background: transparent; border: none; color: var(--color-blanco); font-size: 1.2rem; cursor: pointer; transition: all 0.3s ease; }
+.nav__theme-toggle { 
+    background: transparent; 
+    border: none; 
+    color: var(--color-gris-claro); 
+    font-size: 1.2rem; 
+    cursor: pointer; 
+    transition: all 0.3s ease; 
+}
 .nav__theme-toggle:hover { color: var(--color-amarillo); }
 
 
@@ -889,3 +895,40 @@ body { background-color: var(--bg-primary); color: var(--text-primary); transiti
 }
 
 
+
+
+/* Date and Time Picker */
+.booking__datetime-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 400px;
+}
+
+.booking__input-datetime {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid var(--border-color);
+    background-color: transparent;
+    color: var(--text-primary);
+    font-size: var(--font-size-md);
+    font-family: var(--font-primary);
+    outline: none;
+    transition: border-color 0.3s ease;
+    cursor: pointer;
+}
+
+.booking__input-datetime:focus {
+    border-color: var(--text-accent);
+}
+
+[data-theme='dark'] .booking__input-datetime {
+    color-scheme: dark;
+}
+
+.booking__btn-next {
+    align-self: flex-start;
+    padding: 15px 30px;
+    font-size: var(--font-size-sm);
+    border: none;
+}
