@@ -1293,10 +1293,7 @@ body { background-color: var(--bg-primary); color: var(--text-primary); transiti
         font-size: 1rem;
         margin-left: 10px;
     }
-    .nav__menu-wrapper {
-        width: 40%;
-        justify-content: flex-end;
-    }
+    /* Cleaned up nav wrapper width */
     /* Hide normal links on mobile, keep CTA and theme toggle */
     /* Menu logic replaced with hamburger */
     .btn {
@@ -1443,3 +1440,4 @@ body { background-color: var(--bg-primary); color: var(--text-primary); transiti
         padding: 15px 30px;
     }
 }
+
