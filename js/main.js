@@ -44,3 +44,34 @@ function renderGallery(data) {
     });
 }
 renderGallery(chivasData);
+
+//Fondo oscuro y claro
+const themeToggleBtn = document.getElementById('theme-toggle');
+const body = document.documentElement;
+const themeIcon = themeToggleBtn.querySelector('i');
+
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+    body.setAttribute('data-theme', savedTheme);
+    updateIcon(savedTheme);
+}
+
+themeToggleBtn.addEventListener('click', () => {
+    const currentTheme = body.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    body.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateIcon(newTheme);
+});
+
+function updateIcon(theme) {
+    if (theme === 'dark') {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+    } else {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+    }
+}
+

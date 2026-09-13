@@ -25,7 +25,12 @@
                     <li class="nav__item"><a class="nav__link" href="#nuestras-chivas">Nuestras chivas</a></li>
                     <li class="nav__item"><a class="nav__link" href="#como-funciona">Cómo funciona</a></li>
                     <li class="nav__item"><a class="nav__link" href="#">FAQ</a></li>
-                    <li class="nav__item"><a class="btn btn--primary " href="#">Reservar ahora <i class="fa-solid fa-arrow-up-right-from-square btn__icon"></i></a></li>
+                    <li class="nav__item"><a class="btn btn--primary " href="#reserva">Reservar ahora <i class="fa-solid fa-arrow-up-right-from-square btn__icon"></i></a></li>
+                    <li class="nav__item">
+                        <button id="theme-toggle" class="nav__theme-toggle" aria-label="Alternar modo oscuro">
+                            <i class="fa-solid fa-moon"></i>
+                        </button>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -45,7 +50,7 @@
         </article>
 
         <article class="hero__actions">
-            <a class="btn btn--primary" href="#">Arma tu parche! <i class="fa-solid fa-arrow-up-right-from-square btn__icon"></i></a>
+            <a class="btn btn--primary" href="#reserva">Arma tu parche! <i class="fa-solid fa-arrow-up-right-from-square btn__icon"></i></a>
             <a class="btn btn--secondary" href="#nuestras-chivas">Conoce nuestras chivas <i class="fa-solid fa-angles-down btn__icon"></i></a>
         </article>
     </section>
@@ -113,7 +118,7 @@
                 <div class="chiva-card__header">
                     <img class="chiva-card__image" src="assets/images/chiva-1.jpg" alt="Chiva rumbera en Medellín">
                 </div>
-                <a href="#" class="link link--secondary">Reservar ahora</a>
+                <a href="#reserva" class="link link--secondary">Reservar ahora</a>
             </article>
         </figure>
     </section>
@@ -179,7 +184,62 @@
 
 
 
-    
+<!-- seccion reserva -->
+<section id="reserva" class="booking">
+    <header class="booking__header">
+        <p class="booking__part">06 &mdash; RESERVA TU PARCHE</p>
+        <hgroup class="booking__titles">
+            <h2 class="booking__title">¿Listos para<br><span class="booking__title--enfasis">encenderla?</span></h2>
+            <p class="booking__description">Cuéntanos un poco y te respondemos con una<br>propuesta hecha para ustedes.</p>
+        </hgroup>
+    </header>
+
+    <article class="booking__container">
+        <form class="booking__form-area" aria-label="Formulario de reserva" onsubmit="event.preventDefault();">
+            
+            <nav class="booking__progress" aria-label="Pasos de la reserva">
+                <div class="booking__step booking__step--active" aria-current="step">
+                    <img src="assets/icons/logo-chiva-ia.svg" alt="Paso actual" class="booking__step-icon">
+                </div>
+                <div class="booking__line" aria-hidden="true"></div>
+                <div class="booking__step">2</div>
+                <div class="booking__step">3</div>
+                <div class="booking__step">4</div>
+                <div class="booking__step">5</div>
+                <div class="booking__step">6</div>
+            </nav>
+
+            <section class="booking__step-content" aria-labelledby="step-question">
+                <p class="booking__step-indicator">PASO 01 / 06</p>
+                <h3 id="step-question" class="booking__question">¿Qué vamos a celebrar?</h3>
+                
+                <div class="booking__options" role="group" aria-label="Opciones de celebración">
+                    <button type="button" class="booking__option">
+                        <span>Cumpleaños</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square option-icon" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="booking__option">
+                        <span>Despedida</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square option-icon" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="booking__option">
+                        <span>Tour por Medellín</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square option-icon" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="booking__option">
+                        <span>Corporativo</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square option-icon" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </section>
+        </form>
+
+        <aside class="booking__sidebar">
+            <img src="assets/icons/logo-chiva-ia.svg" alt="Logo Chivas Rumberas" class="booking__sidebar-img">
+        </aside>
+    </article>
+</section>
+
 <script src="js/main.js"></script>
 </body>
 </html>
