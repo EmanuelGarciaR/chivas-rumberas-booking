@@ -1,0 +1,154 @@
+.history-section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 6rem;
+}
+
+.history-intro {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 6rem;
+}
+
+.history-intro__left {
+    text-align: left;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: bold;
+    line-height: 1.2;
+    color: var(--text-primary);
+}
+
+.history-intro__enfasis {
+    color: var(--color-rojo);
+    font-family: var(--font-serif);
+    font-style: italic;
+}
+
+.history-intro__right {
+    text-align: right;
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    max-width: 700px;
+    align-self: flex-end;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.chiva-history {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    align-items: center;
+    margin-bottom: 5rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: var(--bg-dark-panel);
+    border: 1px solid var(--border-color);
+}
+
+.chiva-history__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.chiva-history__image-container {
+    flex: 1;
+    max-width: 500px;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.chiva-history__image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+.chiva-history__header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    gap: 0.5rem;
+}
+
+.chiva-history__title {
+    font-size: clamp(2rem, 3vw, 2.5rem);
+    text-align: left;
+    color: var(--color-crema-calido);
+    margin: 0;
+}
+
+.chiva-history__subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    text-align: left;
+    font-style: italic;
+    color: var(--color-crema-claro);
+}
+
+.chiva-history__text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    color: var(--color-blanco);
+}
+
+.cta-section {
+    background-color: var(--color-marron-oscuro);
+    color: var(--color-crema-claro);
+    padding: 4rem 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    margin-top: 5rem;
+    margin-bottom: 4rem;
+}
+
+.cta-section__title {
+    font-size: clamp(2rem, 3vw, 2.5rem);
+    margin-bottom: 1.5rem;
+    color: var(--color-crema-claro);
+}
+
+.cta-section__text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--color-crema-claro);
+}
+
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    background-color: #25D366;
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 3rem;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: transform 0.3s, background-color 0.3s;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:hover {
+    background-color: #128C7E;
+    transform: translateY(-2px);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .chiva-history {
+        flex-direction: column;
+    }
+    .chiva-history__image-container {
+        max-width: 100%;
+        margin-top: 1.5rem;
+    }
+}
