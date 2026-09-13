@@ -1056,3 +1056,321 @@ body { background-color: var(--bg-primary); color: var(--text-primary); transiti
 .footer__copyright, .footer__credit {
     font-size: inherit;
 }
+
+
+/* ==========================================================================
+   Responsive Design (Mobile & Tablet)
+   ========================================================================== */
+
+@media (max-width: 992px) {
+    :root {
+        --font-size-2xl: 3.5rem;
+        --font-size-xl: 2.5rem;
+        --font-size-lg: 1.8rem;
+        --font-size-md: 1.1rem;
+    }
+
+    /* Layout paddings */
+    .hero, .experience, .why, .chivas, .steps, .stats, .momentos, .booking {
+        padding-left: 5% !important;
+        padding-right: 5% !important;
+    }
+
+    /* Navbar */
+    .header {
+        height: auto;
+        padding: 15px 5%;
+        position: absolute; /* allows page content to flow naturally on mobile if menu gets tall */
+    }
+    .nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .nav__brand {
+        width: 100%;
+        justify-content: center;
+    }
+    .nav__logo {
+        margin-left: 0;
+    }
+    .nav__menu-wrapper {
+        width: 100%;
+        margin-right: 0;
+    }
+    .nav__list {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    /* Hero */
+    .hero {
+        align-items: center;
+        text-align: center;
+    }
+    .hero__location {
+        padding-left: 0;
+    }
+    .hero__location::before {
+        display: none;
+    }
+    .hero__actions {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .hero__actions .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    /* Experience */
+    .experience {
+        flex-direction: column;
+        justify-content: center;
+        gap: 40px;
+        text-align: center;
+    }
+    .experience__content, .experience__details {
+        width: 100%;
+        align-items: center;
+    }
+
+    /* Why */
+    .why__wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+    .why__item {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    /* Chivas */
+    .chivas__header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    /* Steps */
+    .steps__content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 40px;
+    }
+    .steps__list {
+        width: 100%;
+    }
+
+    /* Stats */
+    .stats {
+        flex-direction: column;
+        gap: 50px;
+        text-align: center;
+    }
+
+    /* Booking */
+    .booking__header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    .booking__titles {
+        text-align: left;
+    }
+    .booking__container {
+        flex-direction: column;
+    }
+    .booking__form-area {
+        padding: 40px 5%;
+    }
+    .booking__sidebar {
+        width: 100%;
+        padding: 40px 5%;
+        text-align: center;
+    }
+    .booking__sidebar-img {
+        margin: 0 auto;
+    }
+    .booking__options {
+        grid-template-columns: 1fr;
+    }
+    .booking__progress {
+        width: 100%;
+        max-width: none;
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+}
+
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    /* Scale down root font sizes */
+    :root {
+        --font-size-xl: 2.5rem;
+        --font-size-2xl: 3.5rem;
+        --font-size-lg: 1.5rem;
+    }
+
+    /* Padding adjustments for smaller screens */
+    .hero {
+        padding-left: 40px;
+    }
+    .experience {
+        padding: 40px;
+        gap: 40px;
+        flex-direction: column;
+        justify-content: center;
+        height: auto;
+    }
+    .experience__content, .experience__details {
+        width: 100%;
+        max-width: 100%;
+    }
+    .why {
+        padding: 40px;
+    }
+    .chivas {
+        padding: 40px;
+    }
+    .chivas__header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    .steps {
+        padding: 40px;
+        height: auto;
+    }
+    .steps__content {
+        flex-direction: column;
+        gap: 40px;
+    }
+    .steps__header, .steps__list {
+        width: 100%;
+        max-width: 100%;
+    }
+    .stats {
+        flex-direction: column;
+        padding: 40px;
+        gap: 30px;
+        text-align: center;
+    }
+    .momentos {
+        padding: 40px;
+    }
+    .booking {
+        padding: 40px;
+    }
+    .booking__container {
+        flex-direction: column;
+    }
+    .booking__sidebar {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Nav adjustments */
+    .nav {
+        flex-direction: row;
+    }
+    .nav__brand {
+        width: 60%;
+    }
+    .nav__logo {
+        width: 60px;
+        height: 60px;
+        margin-left: 10px;
+    }
+    .nav__title {
+        font-size: 1rem;
+        margin-left: 10px;
+    }
+    .nav__menu-wrapper {
+        width: 40%;
+        justify-content: flex-end;
+    }
+    /* Hide normal links on mobile, keep CTA and theme toggle */
+    .nav__list {
+        gap: 15px;
+    }
+    .nav__item:not(:last-child):not(:nth-last-child(2)) {
+        display: none;
+    }
+    .btn {
+        padding: 10px;
+        font-size: 0.8rem;
+    }
+    .btn--primary {
+        height: auto;
+    }
+
+    /* Hero */
+    .hero {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .hero__actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+    }
+    .hero__actions .btn {
+        width: 100%;
+    }
+
+    /* Why */
+    .why__wrapper {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .why__wrapper::before {
+        display: none; /* Hide decorative line on mobile */
+    }
+
+    /* Steps */
+    .steps__item {
+        grid-template-columns: 40px 1fr;
+    }
+    .steps__description {
+        grid-column: 2;
+    }
+
+    /* Booking */
+    .booking {
+        padding: 20px 10px;
+    }
+    .booking__header {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .booking__titles {
+        text-align: left;
+    }
+    .booking__form-area {
+        padding: 30px 20px;
+    }
+    .booking__options {
+        grid-template-columns: 1fr;
+    }
+    .booking__progress {
+        max-width: 100%;
+    }
+
+    /* Stats */
+    .stats__description--important {
+        font-size: 1.2rem;
+    }
+
+    /* Momentos */
+    .momentos__title {
+        font-size: 2rem;
+    }
+}
