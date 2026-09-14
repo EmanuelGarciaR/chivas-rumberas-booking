@@ -2,6 +2,15 @@
 
 Este proyecto ha sido uno que llevaba varios días en mi mente. Se ha presentado la oportunidad de comenzar a desarrollarlo para la asignatura de Desarrollo Web. A continuación presentaré todas las características y lo que aborda la página de Booking Chivas Rumberas
 
+El proyecto lo escogí para la entrega de Desarrollo Web
+Ya que cumple con:
+
+- **Dos cosas relacionables:**  Cada cliente se relaciona a una chiva. Cada chiva se relaciona a una fecha y hora. Cada chiva se relaciona a un recorrido.
+
+- **Catalogo**: Actualmente el catalogo es el de chivas y recorridos está pendiente a implementar (Debo reunirme con el dueño para conocer bien cuales son los que oferta)
+
+- **Formulario con sentido:** El formulario se usa para que los clientes puedan indicar que chiva quieren, el objetivo de la chiva, sus datos de contacto y el tipo de pago que desean.
+
 <div align="center">
 
   <img src="assets/icons/logo-chiva-ia.svg" alt="Logo Chivas Rumberas Booking" width="200">
